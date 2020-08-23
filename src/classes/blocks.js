@@ -11,13 +11,13 @@ import {col, row} from "../utils";
     }
 }
 
-export class TitleBloc extends Block {
+export class TitleBlock extends Block {
     constructor(value, options) {
         super( value, options);
     }
 
     toHTML() {
-        const {tag, styles} = this.options
+        const {tag = 'h2', styles} = this.options
         return row(col(`<${tag}>${this.value}</${tag}>`), styles)
     }
 
@@ -29,7 +29,7 @@ export class TextBlock extends Block {
     }
 
     toHTML() {
-        const {tag, styles} = this.options
+        const {tag = 'p', styles} = this.options
         return row(col(`<${tag}>${this.value}</${tag}>`), styles)
     }
 }
@@ -41,7 +41,7 @@ export class ImageBlock extends Block{
 
     toHTML() {
         const {tag, styles, alt, imageStyles} = this.options
-        return row(`<${tag} src="${this.value}" alt="${alt}" styles="${imageStyles}">`, styles)
+        return row(`<${tag} src="${this.value}" alt="${alt}" style="${imageStyles}">`, styles)
     }
 }
 

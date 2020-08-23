@@ -1,4 +1,4 @@
- import {row, col} from './utils'
+ import {row, col} from '../../utils'
 
 function title(block) {
     const {tag, styles} = block.options
@@ -18,7 +18,7 @@ function title(block) {
 
 function image(block) {
     const {tag, styles, alt, imageStyles} = block.options
-    return row(`<${tag} src="${block.value}" alt="${alt}" styles="${imageStyles}">`, styles)
+    return row(`<${tag} src="${block.value}" data-type="img" alt="${alt}" style="${imageStyles}">`, styles)
 }
 
 export const templates = {title, text, textColumns, image}
